@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{% block title %} Schedules {% endblock %}</h1>
+    <table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th scope="col">Image</th>
+            <th scope="col">Network</th>
+        </tr>
+    </thead>
+    {% set i = 1 %}
+    {% for schedule in schedules %}
+        <tbody>
+            <tr>
+                    <th scope="row">{{ schedules.index(schedule)+1 }}</th>
+                    <td>{{ schedule['peak_interval']['start'] }}</td>
+                    <td>{{ schedule['peak_interval']['end'] }}</td>
+                    <td>{{ schedule['server']['image'] }}</td>
+                    <td>{{ schedule['server']['network'] }}</td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+{% endblock %}
+

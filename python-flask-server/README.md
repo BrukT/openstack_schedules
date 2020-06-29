@@ -47,3 +47,6 @@ docker build -t swagger_server .
 # starting up a container
 docker run -p 8080:8080 swagger_server
 ```
+
+## My personal contribution
+I have changed the employee controller to ask the openstack server the list of running services. then send the list to the web content provider flask server.

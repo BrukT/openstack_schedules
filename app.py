@@ -16,7 +16,15 @@ def schedule():
     return render_template('schedules.html', schedules=schedules.json())
 
 
+@app.route('/servers')
+def servers():
+    url = 'http://{}:{}/v2/{}/0'.format(IP, PORT, 'employees')
+    servers = requests.get(url)
+    pprint.pprint(servers.json())
+    return render_template('servers.html', servers=servers.json())
+
+
 @app.route('/')
 def index():
     print(request.endpoint)
-    return redirect('/schedule')
+    return redirect('/servers')

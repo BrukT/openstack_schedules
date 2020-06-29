@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{% block title %} Servers {% endblock %}</h1>
+    <table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Flavour</th>
+            <th scope="col">RAM</th>
+            <th scope="col">Disk</th>
+        </tr>
+    </thead>
+    {% set i = 1 %}
+    {% for server in servers %}
+        <tbody>
+            <tr>
+                    <th scope="row">{{ servers.index(server)+1 }}</th>
+                    <td>{{ server['name'] }}</td>
+                    <td>{{ server['flavor']['original_name'] }}</td>
+                    <td>{{ server['flavor']['ram'] }}</td>
+                    <td>{{ server['flavor']['disk'] }}</td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+{% endblock %}

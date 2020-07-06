@@ -5,3 +5,6 @@ minimal implementation of web interface to access a swagger based openstack api 
 also run the following command inside the python-flask-server folder to start the swagger spi server.
 
 ``` docker build -t server . && docker run server ```
+
+
+*Note: the code is not optimized.*
